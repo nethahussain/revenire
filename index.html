@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Revenire</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Revenire: the reunion of the 53rd MBBS batch, Government Medical College, Kozhikode.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+.hero{padding-block:48px 28px}
+.hero .display{font-size:clamp(54px,13vw,156px);margin-top:12px}
+.gloss{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;font-size:18px;color:var(--muted)}
+.gloss .ipa{font-family:var(--font-mono);font-size:15px;color:var(--ink)}
+.when{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px 32px;margin-top:32px;align-items:start}
+.when .k{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.when .v{font-size:21px;font-weight:600;margin-top:2px}
+.when .s{font-size:15px;color:var(--muted)}
+.tba{color:var(--muted);font-weight:500;font-style:italic}
+.countdown{display:flex;gap:10px;margin-top:8px}
+.cd{min-width:66px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);text-align:center}
+.cd b{display:block;font-family:var(--font-mono);font-size:24px;font-weight:500;font-variant-numeric:tabular-nums}
+.cd small{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+.batch{margin:0}
+.batch img{width:100%;height:auto;aspect-ratio:3/1;object-fit:cover;cursor:zoom-in}
+.batch figcaption{font-size:14px;color:var(--muted);padding-block:10px 0}
+
+/* moments mosaic */
+.mosaic{columns:4 240px;column-gap:10px}
+.mosaic button{display:block;width:100%;padding:0;margin:0 0 10px;border:0;background:var(--line);border-radius:6px;overflow:hidden;cursor:zoom-in;break-inside:avoid}
+.mosaic img{width:100%;height:auto;transition:transform .4s ease}
+.mosaic button:hover img{transform:scale(1.03)}
+@media (prefers-reduced-motion: reduce){.mosaic img{transition:none}}
+
+/* who's coming */
+.count{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.count b{font-family:var(--font-display);font-size:clamp(56px,9vw,96px);line-height:1;color:var(--trace);font-variant-numeric:tabular-nums}
+.count span{font-size:19px;color:var(--muted)}
+.faces{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:22px 14px;margin-top:28px}
+.face{display:grid;justify-items:center;gap:8px;text-align:center;text-decoration:none;color:var(--ink);min-width:0}
+.face .av{width:84px}
+.face span{font-size:14px;line-height:1.3;overflow-wrap:anywhere}
+a.face:hover span{color:var(--trace)}
+.note{font-size:14px;color:var(--muted);margin-top:24px}
+
+/* slam book teaser */
+.teaser{max-width:760px}
+.quote{font-size:19px;line-height:1.55;border-left:3px solid var(--trace);padding-left:18px;margin-block:20px}
+.quote cite{display:block;font-style:normal;font-size:14px;color:var(--muted);margin-top:8px}
+.quote cite a{color:var(--trace);font-weight:600;text-decoration:none}
+.snip{touch-action:pan-y;user-select:none;border-radius:6px}
+.snip .quote{min-height:7.2em;margin-bottom:10px}
+.quote.in{animation:snipIn .45s ease}
+@keyframes snipIn{from{opacity:.15;transform:translateX(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.quote.in{animation:none}}
+.snip-nav{display:flex;align-items:center;gap:12px;padding-left:21px}
+.snip-nav button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+.snip-nav button:hover{border-color:var(--trace);color:var(--trace)}
+.snip-nav span{font-family:var(--font-mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:64px;text-align:center}
+
+/* programme */
+.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 24px}
+.day h3{font-family:var(--font-mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--trace);margin-bottom:8px}
+.prog{list-style:none;margin:0;padding:0}
+.prog li{display:grid;grid-template-columns:74px minmax(0,1fr);gap:14px;padding-block:12px;border-bottom:1px dashed var(--line)}
+.prog li:last-child{border-bottom:0}
+.prog time{font-family:var(--font-mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
+.prog strong{display:block;font-weight:600}
+.prog p{font-size:15px;color:var(--muted)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;display:grid;gap:12px;align-content:start;min-width:0}
+.card h3{font-size:19px;font-weight:600}
+.card p{color:var(--muted);font-size:15.5px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">REVENIRE</a>
+    <nav class="nav" aria-label="Sections">
+      <a class="opt" href="#moments">Moments</a>
+      <a class="opt" href="#coming">Who's coming</a>
+      <a href="slambook.html">Slam book</a>
+      <a class="opt" href="#programme">Programme</a>
+      <a class="opt" href="#join">Photos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero wrap">
+    <div class="eyebrow">53rd MBBS Batch · Government Medical College, Kozhikode</div>
+    <h1 class="display">REVENIR<span>E</span></h1>
+    <div class="gloss"><span class="ipa">/re·we·ˈniː·re/</span><span><em>Latin, verb.</em> To come back. To return.</span></div>
+    <div class="when">
+      <div><div class="k">When</div><div class="v" id="f-date"></div><div class="s" id="f-date-note"></div><div class="countdown" id="countdown" hidden></div></div>
+      <div><div class="k">Where</div><div class="v" id="f-venue"></div><div class="s" id="f-venue-note">Kozhikode, where it all started in 2009.</div></div>
+      <div><div class="k">Who</div><div class="v">All of Batch 53</div><div class="s">Spouses and children welcome.</div></div>
+    </div>
+  </div>
+
+  <figure class="batch">
+    <img id="batch-img" src="gallery/batch.webp" width="2000" height="667" alt="The whole 53rd batch standing in rows on the college grounds, from the Visage slam book">
+    <figcaption class="wrap">The 53rd batch, as printed in <em>Visage</em>, our 2015 slam book. Tap to enlarge.</figcaption>
+  </figure>
+
+  <div class="strip" aria-hidden="true" style="margin-top:28px">
+    <div class="strip-inner"><canvas class="ecg" id="ecg"></canvas><div class="strip-label">II · 25 mm/s · 10 mm/mV · HR 53</div></div>
+  </div>
+
+  <section class="block" id="moments" style="border-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec">Moments</h2>
+        <p>Trips, stage nights, ward postings and hostel corridors, from 2009 to 2015.</p>
+      </div>
+      <div class="mosaic" id="mosaic"></div>
+    </div>
+  </section>
+
+  <section class="block" id="coming">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="count"><b id="n-coming">0</b><span>batchmates have said yes</span></div>
+        <p>Tap a face to read their page from the slam book.</p>
+      </div>
+      <div class="faces" id="faces"></div>
+      <p class="note" id="as-of"></p>
+    </div>
+  </section>
+
+  <section class="block" id="slam">
+    <div class="wrap teaser">
+      <div>
+        <div class="eyebrow">Visage · 2015</div>
+        <h2 class="sec" style="margin-top:8px">The slam book</h2>
+        <div class="snip" id="snip" tabindex="0" aria-roledescription="carousel" aria-label="Snippets from the slam book. Use the arrows or swipe to see more.">
+          <blockquote class="quote" id="quote" aria-live="polite"></blockquote>
+          <div class="snip-nav">
+            <button type="button" id="snip-prev" aria-label="Previous snippet">‹</button>
+            <span id="snip-count"></span>
+            <button type="button" id="snip-next" aria-label="Next snippet">›</button>
+          </div>
+        </div>
+        <p style="color:var(--muted);max-width:52ch">Written by your friends in our final year, one page each. Find yourself, find your gang, and see who wrote what.</p>
+        <div class="row" style="margin-top:22px"><a class="btn btn-primary" href="slambook.html">Open the slam book</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="programme">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec">Programme</h2>
+        <p>Two days, two places: an evening at Kadavu, then a morning back in college.</p>
+      </div>
+      <div class="days" id="days"></div>
+    </div>
+  </section>
+
+  <section class="block" id="join">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="sec">Bring your photos</h2></div>
+      <div class="cards">
+        <div class="card">
+          <h3>Photos, old and new</h3>
+          <p>Hostel rooms, college day, tours, the farewell, and a recent one of you and your family. The organisers have shared the photo albums on the batch WhatsApp group. Add yours there, and we will show them on the big screen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span class="sig">REVENIRE</span><span>53rd MBBS Batch · Government Medical College, Kozhikode · 2009–2026</span></div></footer>
+
+<script src="config.js"></script>
+<script src="cartoons/manifest.js"></script>
+<script src="slambook/data.js"></script>
+<script src="slambook/autograph.js"></script>
+<script src="gallery/gallery.js"></script>
+<script src="common.js"></script>
+<script>
+(function(){
+  const C = window.REVENIRE, P = window.SLAMBOOK || [], G = window.GALLERY || [], R = window.Rev;
+  const $ = id => document.getElementById(id);
+  const TBA = '<span class="tba">To be announced</span>';
+
+  $('f-date').innerHTML = C.dateLabel ? R.esc(C.dateLabel) : TBA;
+  $('f-venue').innerHTML = C.venue ? R.esc(C.venue) : TBA;
+  if (C.venueNote) $('f-venue-note').textContent = C.venueNote;
+  if (C.dateNote) $('f-date-note').textContent = C.dateNote;
+  const start = C.dateISO ? new Date(C.dateISO) : null;
+  if (start && !isNaN(start)) {
+    const box = $('countdown'); box.hidden = false;
+    const tick = () => { const ms = start - new Date();
+      if (ms <= 0) { box.innerHTML = '<div class="cd"><b>Now</b><small>Welcome back</small></div>'; return; }
+      const d = Math.floor(ms/864e5), h = Math.floor(ms/36e5)%24, m = Math.floor(ms/6e4)%60;
+      box.innerHTML = [[d,'days'],[h,'hours'],[m,'min']].map(([n,l]) => `<div class="cd"><b>${String(n).padStart(2,'0')}</b><small>${l}</small></div>`).join(''); };
+    tick(); setInterval(tick, 30000);
+  }
+
+  R.ecg($('ecg'));
+  $('batch-img').addEventListener('click', () => R.lightbox(['gallery/batch.webp'], 0));
+
+  // Moments
+  const urls = G.map(g => 'gallery/' + g[0]);
+  $('mosaic').innerHTML = G.map((g,i) => `<button type="button" data-i="${i}" aria-label="Open photo ${i+1}"><img src="gallery/${g[0]}" width="${g[1]}" height="${g[2]}" alt="" loading="lazy"></button>`).join('');
+  $('mosaic').addEventListener('click', e => { const b = e.target.closest('button'); if (b) R.lightbox(urls, +b.dataset.i); });
+
+  // Who's coming
+  const coming = (C.coming || []).slice().sort((a,b) => a.localeCompare(b));
+  $('n-coming').textContent = coming.length;
+  $('faces').innerHTML = coming.map(n => {
+    const p = R.matchProfile(n, P);
+    const inner = R.avatar(n, p && p.slug, 84, p) + `<span>${R.esc(n)}</span>`;
+    return p ? `<a class="face" href="slambook.html#${p.slug}">${inner}</a>` : `<div class="face">${inner}</div>`;
+  }).join('');
+  $('as-of').textContent = 'From the guest list as of ' + (C.listAsOf || 'recently') + '. Only names are shown here.';
+
+  // Slam book snippets: the opening lines of every page, shuffled for each visitor, slide to see more
+  const snips = P.filter(p => p.text.length).map(p => {
+    let s = p.text[0].split(/(?<=[.!?])\s/).slice(0, 2).join(' ');
+    if (s.length > 260) s = s.split(/(?<=[.!?])\s/)[0];
+    return { s, p };
+  });
+  for (let i = snips.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [snips[i], snips[j]] = [snips[j], snips[i]]; }
+  let si = 0, timer = null;
+  const showSnip = k => {
+    si = (k + snips.length) % snips.length; const { s, p } = snips[si];
+    const q = $('quote'); q.classList.remove('in'); void q.offsetWidth;
+    q.innerHTML = `${R.esc(s)}<cite>From the page of <a href="slambook.html#${p.slug}">${R.esc(p.name)}</a></cite>`;
+    q.classList.add('in');
+    $('snip-count').textContent = `${si + 1} / ${snips.length}`;
+  };
+  const stopAuto = () => { clearInterval(timer); timer = null; };
+  if (snips.length) {
+    showSnip(0);
+    $('snip-prev').addEventListener('click', () => { stopAuto(); showSnip(si - 1); });
+    $('snip-next').addEventListener('click', () => { stopAuto(); showSnip(si + 1); });
+    let x0 = null;
+    $('snip').addEventListener('pointerdown', e => { x0 = e.clientX; });
+    $('snip').addEventListener('pointerup', e => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) { stopAuto(); showSnip(si + (dx < 0 ? 1 : -1)); } });
+    $('snip').addEventListener('keydown', e => { if (e.key === 'ArrowRight') { stopAuto(); showSnip(si + 1); } if (e.key === 'ArrowLeft') { stopAuto(); showSnip(si - 1); } });
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      timer = setInterval(() => showSnip(si + 1), 9000);
+      ['mouseenter', 'focusin'].forEach(ev => $('snip').addEventListener(ev, stopAuto));
+    }
+  }
+
+  // Programme
+  const days = {};
+  (C.programme || []).forEach(x => (days[x.day || ''] ||= []).push(x));
+  $('days').innerHTML = Object.entries(days).map(([d, items]) => `<div class="day"><h3>${R.esc(d)}${d === 'Saturday' ? ' · 19 Dec' : d === 'Sunday' ? ' · 20 Dec' : ''}${C.dayVenues && C.dayVenues[d] ? ' · ' + R.esc(C.dayVenues[d]) : ''}</h3><ol class="prog">${
+    items.map(x => `<li><time>${R.esc(x.time)}</time><div><strong>${R.esc(x.title)}</strong>${x.note ? `<p>${R.esc(x.note)}</p>` : ''}</div></li>`).join('')}</ol></div>`).join('');
+
+  // Links
+})();
+</script>
+
+</body>
+</html>

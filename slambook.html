@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visage Slam Book</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.intro{padding-block:44px 24px}
+.intro .display{font-size:clamp(44px,9vw,104px);margin-top:10px}
+.intro p{color:var(--muted);max-width:60ch;margin-top:14px}
+.tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px}
+.search{flex:1 1 260px;max-width:420px;padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit}
+.letters{display:flex;flex-wrap:wrap;gap:4px}
+.letters a{font-family:var(--font-mono);font-size:13px;text-decoration:none;color:var(--muted);padding:4px 7px;border-radius:4px}
+.letters a:hover{background:var(--trace-soft);color:var(--trace)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:18px;padding-block:20px 72px}
+.pcard{display:grid;gap:10px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
+.pcard .ph{position:relative;aspect-ratio:4/3;background:var(--line)}
+.pcard .ph .clip{position:absolute;inset:0;overflow:hidden;display:flex;align-items:center}
+.pcard .av{position:absolute;left:12px;bottom:-26px;width:60px;border:3px solid var(--surface)}
+.pcard .t{padding:30px 14px 14px;display:grid;gap:4px}
+.pcard .t.nob{padding-top:4px}
+.phead .portrait{position:relative;display:block;width:clamp(220px,34vw,420px);max-width:100%;padding:0;border:0;border-radius:10px;overflow:hidden;background:var(--line);cursor:zoom-in}
+.phead .toon{position:absolute;right:10px;bottom:10px;width:76px}
+.phead .toon .av{border:3px solid var(--surface)}
+.pcard strong{font-size:15.5px;line-height:1.3}
+.pcard small{font-size:13px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pcard:hover strong{color:var(--trace)}
+.empty{color:var(--muted);padding-block:24px}
+
+/* profile view */
+.profile{padding-block:28px 72px}
+.back{font-size:15px;text-decoration:none;font-weight:600}
+.phead{display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;margin-top:24px}
+.phead .av{width:clamp(120px,22vw,190px)}
+.phead .eyebrow{margin-bottom:6px}
+.phead h1{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,5vw,54px);letter-spacing:.03em;line-height:1.1}
+.phead .then{display:flex;align-items:center;gap:12px;margin-top:14px;color:var(--muted);font:14px var(--font-body);background:none;border:0;padding:0;cursor:zoom-in}
+.phead .then .kid{width:64px;border-radius:8px}
+@media (max-width:560px){.phead{grid-template-columns:minmax(0,1fr)}}
+.pbody{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;margin-top:36px;align-items:start}
+@media (max-width:860px){.pbody{grid-template-columns:minmax(0,1fr)}}
+.ptext{display:grid;gap:16px;font-size:18px;line-height:1.7;max-width:62ch}
+.ptext p:first-child::first-letter{font-family:var(--font-display);font-weight:700;font-size:3.1em;float:left;line-height:.9;padding:6px 8px 0 0;color:var(--trace)}
+.pphotos{display:grid;gap:10px}
+.pphotos button{display:block;width:100%;padding:0;border:0;background:var(--line);border-radius:8px;overflow:hidden;cursor:zoom-in}
+.pnav{display:flex;justify-content:space-between;gap:12px;margin-top:44px;padding-top:20px;border-top:1px solid var(--line);flex-wrap:wrap}
+.pnav a{text-decoration:none;font-weight:600}
+.privacy{font-size:13.5px;color:var(--muted);margin-top:28px}
+.auto{max-width:62ch;display:grid;gap:18px}
+.auto-note{font-size:15px;color:var(--muted);border-left:3px solid var(--brass);padding-left:14px}
+.auto dl{margin:0;display:grid;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.auto dl div{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding:14px 18px;border-bottom:1px dashed var(--line)}
+.auto dl div:last-child{border-bottom:0}
+.auto dt{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+.auto dd{margin:0;font-size:17.5px;line-height:1.55}
+@media (max-width:520px){.auto dl div{grid-template-columns:minmax(0,1fr);gap:2px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html">REVENIRE</a>
+    <nav class="nav" aria-label="Sections">
+      <a class="opt" href="index.html#moments">Moments</a>
+      <a class="opt" href="index.html#coming">Who's coming</a>
+      <a href="slambook.html" aria-current="page">Slam book</a>
+      <a class="opt" href="index.html#join">Photos</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div id="index-view">
+    <div class="intro wrap">
+      <div class="eyebrow">53rd Batch · Government Medical College, Kozhikode · 2015</div>
+      <h1 class="display">VISAG<span>E</span></h1>
+      <p>Our final-year slam book.</p>
+      <div class="tools">
+        <input class="search" id="q" type="search" placeholder="Search a name or a word, e.g. Swamiyettan" aria-label="Search the slam book">
+        <nav class="letters" id="letters" aria-label="Jump to letter"></nav>
+      </div>
+    </div>
+    <div class="wrap"><div class="grid" id="grid"></div></div>
+  </div>
+
+  <article id="profile-view" class="wrap profile" hidden></article>
+</main>
+
+<footer><div class="wrap"><span class="sig">REVENIRE</span><span>From <em>Visage</em>, the 53rd batch slam book, by Team Visage.</span></div></footer>
+
+<script src="cartoons/manifest.js"></script>
+<script src="slambook/data.js"></script>
+<script src="slambook/autograph.js"></script>
+<script src="common.js"></script>
+<script>
+(function(){
+  const P = window.SLAMBOOK || [], R = window.Rev;
+  const $ = id => document.getElementById(id);
+  const bySlug = Object.fromEntries(P.map((p,i) => [p.slug, i]));
+
+  // index
+  const letters = [...new Set(P.map(p => p.name[0].toUpperCase()))];
+  $('letters').innerHTML = letters.map(l => `<a href="#" data-l="${l}">${l}</a>`).join('');
+  function card(p){
+    const box = p.portrait || p.photos[0];
+    const cover = box ? `<div class="clip">${R.crop(p, box, 'crop', p.portrait ? 'Slam book photo of ' + p.name : 'Photo')}</div>` : '';
+    const badge = (p.portrait && !R.cartoon(p.slug)) ? '' : R.avatar(p.name, p.slug, 60);
+    const first = p.autograph ? (p.autograph.nickname ? `“${p.autograph.nickname}” · from the autograph form` : 'From the autograph form')
+                              : (p.text[0] || '').split(/(?<=[.!?])\s/)[0];
+    return `<a class="pcard" href="#${p.slug}" data-l="${p.name[0].toUpperCase()}"><div class="ph">${cover}${badge}</div><div class="t${badge ? '' : ' nob'}"><strong>${R.esc(p.name)}</strong><small>${R.esc(first)}</small></div></a>`;
+  }
+  function renderGrid(){
+    const q = $('q').value.trim().toLowerCase();
+    const list = q ? P.filter(p => (p.name + ' ' + p.text.join(' ') + ' ' + Object.values(p.autograph || {}).join(' ')).toLowerCase().includes(q)) : P;
+    $('grid').innerHTML = list.length ? list.map(card).join('') : `<p class="empty">No page mentions “${R.esc(q)}”.</p>`;
+  }
+  $('q').addEventListener('input', renderGrid);
+  $('letters').addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault();
+    const c = document.querySelector(`.pcard[data-l="${a.dataset.l}"]`); if (c) c.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'}); });
+
+  // pages lost from the PDF: the person's own answers from the 2015 autograph form
+  const FIELDS = [['nickname','Nickname'],['loves','Turn-ons'],['hates','Turn-offs'],['lookalike','Celebrity look-alike'],['strengths','Strengths'],['gift','Ideal birthday gift']];
+  function autographHTML(p){
+    const a = p.autograph;
+    return `<div class="auto">
+      <p class="auto-note">This page was lost from our copy of <em>Visage</em>. These are ${R.esc(p.name.split(' ')[0])}'s own answers from the 2015 autograph form.</p>
+      <dl>${FIELDS.filter(([k]) => a[k]).map(([k, l]) => `<div><dt>${l}</dt><dd>${R.esc(a[k])}</dd></div>`).join('')}</dl>
+    </div>`;
+  }
+
+  // profile
+  function renderProfile(i){
+    const p = P[i], prev = P[(i - 1 + P.length) % P.length], next = P[(i + 1) % P.length];
+    const pics = p.photos.map(b => () => R.cropURL(p, b));
+    $('profile-view').innerHTML = `
+      <a class="back" href="#">← All pages</a>
+      <div class="phead">
+        ${p.portrait
+          ? `<button type="button" class="portrait" data-por aria-label="Enlarge photo of ${R.esc(p.name)}">${R.crop(p, p.portrait, 'crop', 'Slam book photo of ' + p.name)}${R.cartoon(p.slug) ? `<span class="toon">${R.avatar(p.name, p.slug, 76)}</span>` : ''}</button>`
+          : R.avatar(p.name, p.slug, 190)}
+        <div>
+          <div class="eyebrow">Visage · page ${i + 1} of ${P.length}</div>
+          <h1>${R.esc(p.name)}</h1>
+          ${p.kid ? `<button type="button" class="then" data-kid>${R.crop(p, p.kid, 'crop kid', 'Childhood photo of ' + p.name)}Then</button>` : ''}
+        </div>
+      </div>
+      <div class="pbody">
+        ${p.autograph ? autographHTML(p) : `<div class="ptext">${p.text.map(t => `<p>${R.esc(t)}</p>`).join('')}</div>`}
+        <div class="pphotos">${p.photos.map((b,j) => `<button type="button" data-j="${j}" aria-label="Open photo ${j+1}">${R.crop(p, b)}</button>`).join('')}</div>
+      </div>
+      <p class="privacy">Is something on this page you would rather not have online? Tell the organisers and we will take it down.</p>
+      <nav class="pnav"><a href="#${prev.slug}">← ${R.esc(prev.name)}</a><a href="#${next.slug}">${R.esc(next.name)} →</a></nav>`;
+    $('profile-view').querySelector('.pphotos').addEventListener('click', e => { const b = e.target.closest('button'); if (b) R.lightbox(pics, +b.dataset.j); });
+    const por = $('profile-view').querySelector('[data-por]'); if (por) por.addEventListener('click', () => R.lightbox([() => R.cropURL(p, p.portrait)], 0));
+    const kid = $('profile-view').querySelector('[data-kid]'); if (kid) kid.addEventListener('click', () => R.lightbox([() => R.cropURL(p, p.kid)], 0));
+    document.title = p.name + ' · Visage';
+  }
+
+  let lastScroll = 0;
+  function route(){
+    const h = decodeURIComponent(location.hash.slice(1));
+    if (h in bySlug){
+      if ($('profile-view').hidden) lastScroll = scrollY;
+      $('index-view').hidden = true; $('profile-view').hidden = false;
+      renderProfile(bySlug[h]); scrollTo(0, 0);
+    } else {
+      const wasProfile = !$('profile-view').hidden;
+      $('profile-view').hidden = true; $('index-view').hidden = false; document.title = 'Visage Slam Book';
+      if (wasProfile) scrollTo(0, lastScroll);
+    }
+  }
+  renderGrid(); route();
+  addEventListener('hashchange', route);
+})();
+</script>
+</body>
+</html>
