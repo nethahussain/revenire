@@ -33,7 +33,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nav{display:flex;gap:18px;flex-wrap:wrap}
 .nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
 .nav a:hover,.nav a[aria-current="page"]{color:var(--ink)}
-@media (max-width:700px){.nav a.opt{display:none}}
+@media (max-width:700px){
+  /* phones: keep every menu link, in one row that scrolls sideways */
+  .top .wrap{gap:14px;padding-block:10px}
+  .nav{flex:1;min-width:0;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;gap:16px;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+       mask-image:linear-gradient(to right,transparent 0,#000 14px,#000 calc(100% - 14px),transparent 100%)}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{white-space:nowrap;padding-block:6px;font-size:14px}
+  .nav a:first-child{margin-left:auto;padding-left:14px}
+  .nav a:last-child{padding-right:14px}
+  section.block{padding-block:48px}
+  .sec-head{margin-bottom:20px}
+}
 
 .eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .display{font-family:var(--font-display);font-weight:700;letter-spacing:.06em;line-height:.95}
