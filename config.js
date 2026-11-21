@@ -36,10 +36,16 @@ window.REVENIRE = {
   ],
 
   /* RSVP-sheet name -> slam book name, where the spelling differs. */
+  /* Photos for people the slam book has no picture of. Put the image in site/faces/ and add a line:
+     "Name exactly as in the list above": "file-name.jpg"   (a square, face-centred photo looks best) */
+  extraFaces: {
+  },
+
   aliases: {
     "Neethu Santosh": "Neethu Santhosh", "Dan Kuriakose": "Dan Faustino Kuriakose", "Indu": "Indu V P",
     "Kaleem Ahmed": "Kaleem Ahammed", "Mohammed Muhsin": "Mohamed Muhsin K", "Nikitha Ahamed": "Nikitha K Ahamed",
-    "Syam": "Syam S Kumar", "Vaishak V K": "Vaisakh V K"
+    "Syam": "Syam S Kumar", "Vaishak V K": "Vaisakh V K",
+    "Jannat Jalal": "Jannath", "Naseef": "Muhammed Nasweef M", "Shaheen": "Muhammed Shaheen V K", "Sruthin M": "Sruthin S Valsan"
   },
 
   programme: [

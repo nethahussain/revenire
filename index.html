@@ -231,7 +231,9 @@ a.face:hover span{color:var(--trace)}
   $('n-coming').textContent = coming.length;
   $('faces').innerHTML = coming.map(n => {
     const p = R.matchProfile(n, P);
-    const inner = R.avatar(n, p && p.slug, 84, p) + `<span>${R.esc(n)}</span>`;
+    const extra = C.extraFaces && C.extraFaces[n];   // photo supplied for someone the slam book has no picture of
+    const pic = (extra && !(p && R.cartoon(p.slug))) ? `<div class="av"><img src="faces/${R.esc(extra)}" alt="${R.esc(n)}" loading="lazy"></div>` : R.avatar(n, p && p.slug, 84, p);
+    const inner = pic + `<span>${R.esc(n)}</span>`;
     return p ? `<a class="face" href="slambook.html#${p.slug}">${inner}</a>` : `<div class="face">${inner}</div>`;
   }).join('');
   $('as-of').textContent = 'From the guest list as of ' + (C.listAsOf || 'recently') + '. Only names are shown here.';
