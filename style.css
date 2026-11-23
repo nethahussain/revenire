@@ -23,8 +23,12 @@
 .band{background:var(--band-bg);color:var(--ink)}
 .band-teal{--band-bg:radial-gradient(900px 420px at 88% -8%, var(--teal-2) 0, transparent 70%), var(--teal);
   --ink:#FFF6E8; --muted:#CFE3E0; --line:#FFFFFF2E; --surface:#FFFFFF14; --trace:var(--gold-2); --on-trace:#1A1222; --trace-soft:#FFC8452A}
-.band-crimson{--band-bg:radial-gradient(900px 420px at 10% 0%, #D92352 0, transparent 70%), var(--crimson);
-  --ink:#FFF6E8; --muted:#FFDCE3; --line:#FFFFFF33; --surface:#FFFFFF1A; --trace:var(--gold-2); --on-trace:#1A1222; --trace-soft:#FFC8452A}
+.band-crimson{--band-bg:radial-gradient(900px 420px at 10% 0%, #FBE6E2 0, transparent 70%), #F3CFCB;
+  --ink:#1A1222; --muted:#5B3A40; --line:#1A12221F; --surface:#FFF4F2; --trace:#A3102F; --on-trace:#FFFFFF; --trace-soft:#A3102F1A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .band-crimson{--band-bg:radial-gradient(900px 420px at 10% 0%, #5E3340 0, transparent 70%), #47252F;
+  --ink:#F7E9E6; --muted:#E2C4C6; --line:#FFFFFF24; --surface:#FFFFFF12; --trace:#FF9AAE; --on-trace:#1A1222}}
+:root[data-theme="dark"] .band-crimson{--band-bg:radial-gradient(900px 420px at 10% 0%, #5E3340 0, transparent 70%), #47252F;
+  --ink:#F7E9E6; --muted:#E2C4C6; --line:#FFFFFF24; --surface:#FFFFFF12; --trace:#FF9AAE; --on-trace:#1A1222}
 .band-gold{--band-bg:radial-gradient(900px 420px at 90% 0%, #FFD36B 0, transparent 70%), var(--gold);
   --ink:#1A1222; --muted:#3E2C14; --line:#1A122233; --surface:#FFF4DA; --trace:#A3102F; --on-trace:#FFFFFF; --trace-soft:#A3102F1F}
 section.band.block{border-top:0}
