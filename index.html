@@ -11,27 +11,29 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="style.css">
 <style>
-.hero{padding-block:48px 28px}
+.hero{padding-block:56px 36px}
+.hero .eyebrow{color:var(--gold-2)}
+.hero .display{text-shadow:0 4px 0 #00000033}
 .hero .display{font-size:clamp(54px,13vw,156px);margin-top:12px}
 .gloss{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;font-size:18px;color:var(--muted)}
 .when{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px 32px;margin-top:32px;align-items:start}
-.when .k{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.when .k{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--trace)}
 .when .v{font-size:21px;font-weight:600;margin-top:2px}
 .when .s{font-size:15px;color:var(--muted)}
 .tba{color:var(--muted);font-weight:500;font-style:italic}
 .countdown{display:flex;gap:12px;margin-top:14px}
-.cd{min-width:96px;padding:12px 14px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);text-align:center}
-.cd b{display:block;font-family:var(--font-mono);font-size:42px;line-height:1.1;font-weight:500;color:var(--trace);font-variant-numeric:tabular-nums}
-.cd small{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cd{min-width:100px;padding:12px 14px 10px;border-radius:12px;background:var(--gold);text-align:center;box-shadow:0 6px 0 #0000002e}
+.cd b{display:block;font-family:var(--font-mono);font-size:42px;line-height:1.1;font-weight:500;color:#1A1222;font-variant-numeric:tabular-nums}
+.cd small{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#3E2C14;font-weight:600}
 @media (max-width:600px){.countdown{gap:8px}.cd{flex:1;min-width:0;padding:10px 6px 8px}.cd b{font-size:36px}}
 
 .batch{margin:0}
 .batch img{width:100%;height:auto;aspect-ratio:3/1;object-fit:cover;cursor:zoom-in}
-.batch figcaption{font-size:14px;color:var(--muted);padding-block:10px 0}
+.batch figcaption{font-size:14px;color:var(--muted);padding-block:12px 18px}
 
 /* moments mosaic */
 .mosaic{columns:4 240px;column-gap:10px}
-.mosaic button{display:block;width:100%;padding:0;margin:0 0 10px;border:0;background:var(--line);border-radius:6px;overflow:hidden;cursor:zoom-in;break-inside:avoid}
+.mosaic button{display:block;width:100%;padding:0;margin:0 0 10px;border:0;background:var(--line);border-radius:10px;box-shadow:0 4px 14px #1A12221f;overflow:hidden;cursor:zoom-in;break-inside:avoid}
 .mosaic img{width:100%;height:auto;transition:transform .4s ease}
 .mosaic button:hover img{transform:scale(1.03)}
 @media (prefers-reduced-motion: reduce){.mosaic img{transition:none}}
@@ -42,26 +44,29 @@
 .count span{font-size:19px;color:var(--muted)}
 .faces{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:22px 14px;margin-top:28px}
 .face{display:grid;justify-items:center;gap:8px;text-align:center;text-decoration:none;color:var(--ink);min-width:0}
-.face .av{width:84px}
-.face span{font-size:14px;line-height:1.3;overflow-wrap:anywhere}
+.face .av{width:84px;box-shadow:0 0 0 3px var(--cream),0 8px 18px #00000040;transition:transform .2s ease}
+a.face:hover .av{transform:translateY(-3px) rotate(-2deg)}
+@media (prefers-reduced-motion: reduce){.face .av{transition:none}a.face:hover .av{transform:none}}
+.face span{font-size:14px;line-height:1.3;overflow-wrap:anywhere;font-weight:500}
 a.face:hover span{color:var(--trace)}
 .note{font-size:14px;color:var(--muted);margin-top:24px}
 
 /* slam book teaser */
 .teaser{max-width:760px}
-.quote{font-size:19px;line-height:1.55;border-left:3px solid var(--trace);padding-left:18px;margin:20px 0}
+.quote{font-size:21px;line-height:1.55;font-weight:500;border-left:6px solid var(--trace);padding-left:20px;margin:24px 0}
 @media (max-width:600px){
   .quote{font-size:17.5px;padding-left:14px}
   .mosaic{columns:2;column-gap:6px}
   .mosaic button{margin-bottom:6px;border-radius:4px}
   .faces{grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:18px 10px}
   .face .av{width:74px}
-  .day{padding:18px 16px}
+  .day{padding:0 16px 10px}
+  .day h3{margin:0 -16px 6px;padding:16px}
   .hero{padding-block:32px 20px}
   .when{gap:18px;margin-top:24px}
   .batch figcaption{font-size:13px}
 }
-.day h3 .dv{display:block;font-family:var(--font-body);font-size:15px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600;margin-top:2px}
+.day h3 .dv{display:block;font-family:var(--font-body);font-size:15px;letter-spacing:0;text-transform:none;color:#FFF6E8;font-weight:600;font-size:19px;margin-top:4px}
 .quote cite{display:block;font-style:normal;font-size:14px;color:var(--muted);margin-top:8px}
 .quote cite a{color:var(--trace);font-weight:600;text-decoration:none}
 .snip{touch-action:pan-y;user-select:none;border-radius:6px}
@@ -70,25 +75,26 @@ a.face:hover span{color:var(--trace)}
 @keyframes snipIn{from{opacity:.15;transform:translateX(14px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion: reduce){.quote.in{animation:none}}
 .snip-nav{display:flex;align-items:center;gap:12px;padding-left:21px}
-.snip-nav button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
-.snip-nav button:hover{border-color:var(--trace);color:var(--trace)}
+.snip-nav button{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);background:transparent;color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+.snip-nav button:hover{background:var(--ink);color:var(--gold)}
 .snip-nav span{font-family:var(--font-mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:64px;text-align:center}
 
 /* programme */
 .days{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-.day{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 24px}
-.day h3{font-family:var(--font-mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--trace);margin-bottom:8px}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 24px 14px;overflow:hidden;box-shadow:0 8px 24px #1A122214}
+.day h3{font-family:var(--font-mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-2);background:var(--teal);margin:0 -24px 8px;padding:18px 24px}
+.day:nth-child(2) h3{background:var(--crimson)}
 .prog{list-style:none;margin:0;padding:0}
 .prog li{display:grid;grid-template-columns:74px minmax(0,1fr);gap:14px;padding-block:12px;border-bottom:1px dashed var(--line)}
 .prog li:last-child{border-bottom:0}
-.prog time{font-family:var(--font-mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
+.prog time{font-family:var(--font-mono);font-size:14px;color:var(--trace);font-weight:500;font-variant-numeric:tabular-nums;padding-top:2px}
 .prog strong{display:block;font-weight:600}
 .prog p{font-size:15px;color:var(--muted)}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;display:grid;gap:12px;align-content:start;min-width:0}
-.card h3{font-size:19px;font-weight:600}
-.card p{color:var(--muted);font-size:15.5px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;gap:12px;align-content:start;min-width:0}
+.card h3{font-size:21px;font-weight:600;color:var(--trace)}
+.card p{color:var(--ink);font-size:16px}
 </style>
 </head>
 <body>
@@ -106,6 +112,7 @@ a.face:hover span{color:var(--trace)}
 </header>
 
 <main id="top">
+  <div class="band band-teal">
   <div class="hero wrap">
     <div class="eyebrow">53rd MBBS Batch · Government Medical College, Kozhikode</div>
     <h1 class="display">REVENIR<span>E</span></h1>
@@ -121,8 +128,9 @@ a.face:hover span{color:var(--trace)}
     <img id="batch-img" src="gallery/batch.webp" width="2000" height="667" alt="The whole 53rd batch standing in rows on the college grounds, from the Visage slam book">
     <figcaption class="wrap">The 53rd batch, as printed in <em>Visage</em>, our 2015 slam book. Tap to enlarge.</figcaption>
   </figure>
+  </div>
 
-  <div class="strip" aria-hidden="true" style="margin-top:28px">
+  <div class="strip" aria-hidden="true">
     <div class="strip-inner"><canvas class="ecg" id="ecg"></canvas><div class="strip-label">II · 25 mm/s · 10 mm/mV · HR 53</div></div>
   </div>
 
@@ -136,7 +144,7 @@ a.face:hover span{color:var(--trace)}
     </div>
   </section>
 
-  <section class="block" id="coming">
+  <section class="block band band-crimson" id="coming">
     <div class="wrap">
       <div class="sec-head">
         <div class="count"><b id="n-coming">0</b><span>batchmates have said yes</span></div>
@@ -147,7 +155,7 @@ a.face:hover span{color:var(--trace)}
     </div>
   </section>
 
-  <section class="block" id="slam">
+  <section class="block band band-gold" id="slam">
     <div class="wrap teaser">
       <div>
         <div class="eyebrow">Visage · 2015</div>
@@ -160,7 +168,7 @@ a.face:hover span{color:var(--trace)}
             <button type="button" id="snip-next" aria-label="Next snippet">›</button>
           </div>
         </div>
-        <p style="color:var(--muted);max-width:52ch">Written by your friends in our final year, one page each. Find yourself, find your gang, and see who wrote what.</p>
+        <p style="color:var(--muted);max-width:52ch;font-size:17.5px;margin-top:22px">Written by your friends in our final year, one page each. Find yourself, find your gang, and see who wrote what.</p>
         <div class="row" style="margin-top:22px"><a class="btn btn-primary" href="slambook.html">Open the slam book</a></div>
       </div>
     </div>
@@ -176,7 +184,7 @@ a.face:hover span{color:var(--trace)}
     </div>
   </section>
 
-  <section class="block" id="join">
+  <section class="block band band-teal" id="join">
     <div class="wrap">
       <div class="sec-head"><h2 class="sec">Bring your photos</h2></div>
       <div class="cards">

@@ -11,25 +11,32 @@
 <link rel="stylesheet" href="style.css">
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-.intro{padding-block:44px 24px}
+.intro{padding-block:48px 32px}
+.intro .eyebrow{color:var(--gold-2)}
+.intro .display{text-shadow:0 4px 0 #00000033}
 .intro .display{font-size:clamp(44px,9vw,104px);margin-top:10px}
-.intro p{color:var(--muted);max-width:60ch;margin-top:14px}
+.intro p{color:var(--muted);max-width:60ch;margin-top:14px;font-size:19px}
 .tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px}
-.search{flex:1 1 260px;max-width:420px;padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit}
+.search{flex:1 1 260px;max-width:420px;padding:12px 18px;border-radius:999px;border:2px solid var(--gold);background:#FFF6E8;color:#1A1222;font:inherit}
+.search::placeholder{color:#6B5E70}
 .letters{display:flex;flex-wrap:wrap;gap:4px}
-.letters a{font-family:var(--font-mono);font-size:13px;text-decoration:none;color:var(--muted);padding:4px 7px;border-radius:4px}
-.letters a:hover{background:var(--trace-soft);color:var(--trace)}
+.letters a{font-family:var(--font-mono);font-size:13px;font-weight:500;text-decoration:none;color:var(--ink);padding:4px 7px;border-radius:6px}
+.letters a:hover{background:var(--gold);color:#1A1222}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:18px;padding-block:20px 72px}
-.pcard{display:grid;gap:10px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:20px;padding-block:32px 72px}
+.pcard{--c:var(--crimson);display:grid;gap:10px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--c);border-radius:12px;overflow:hidden;min-width:0;box-shadow:0 6px 18px #1A122214;transition:transform .2s ease,box-shadow .2s ease}
+.pcard:nth-child(3n+2){--c:var(--teal-2)}
+.pcard:nth-child(3n){--c:var(--gold)}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 14px 28px #1A122229}
+@media (prefers-reduced-motion: reduce){.pcard{transition:none}.pcard:hover{transform:none}}
 .pcard .ph{position:relative;aspect-ratio:4/3;background:var(--line)}
 .pcard .ph .clip{position:absolute;inset:0;overflow:hidden;display:flex;align-items:center}
-.pcard .av{position:absolute;left:12px;bottom:-26px;width:60px;border:3px solid var(--surface)}
+.pcard .av{position:absolute;left:12px;bottom:-26px;width:60px;border:3px solid var(--c);box-shadow:0 4px 10px #0000002e}
 .pcard .t{padding:30px 14px 14px;display:grid;gap:4px}
 .pcard .t.nob{padding-top:4px}
 .phead .portrait{position:relative;display:block;width:clamp(220px,34vw,420px);max-width:100%;padding:0;border:0;border-radius:10px;overflow:hidden;background:var(--line);cursor:zoom-in}
 .phead .toon{position:absolute;right:10px;bottom:10px;width:76px}
-.phead .toon .av{border:3px solid var(--surface)}
+.phead .toon .av{border:4px solid var(--gold);box-shadow:0 6px 14px #00000040}
 .pcard strong{font-size:15.5px;line-height:1.3}
 .pcard small{font-size:13px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .pcard:hover strong{color:var(--trace)}
@@ -37,10 +44,11 @@
 
 /* profile view */
 .profile{padding-block:28px 72px}
-.back{font-size:15px;text-decoration:none;font-weight:600}
+.back{display:inline-block;font-size:15px;text-decoration:none;font-weight:600;color:var(--on-trace);background:var(--trace);padding:8px 16px;border-radius:999px}
 .phead{display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;margin-top:24px}
 .phead > .av{width:clamp(120px,22vw,190px)}
-.phead .eyebrow{margin-bottom:6px}
+.phead .eyebrow{margin-bottom:6px;color:var(--trace)}
+.phead h1::after{content:"";display:block;width:64px;height:6px;border-radius:3px;background:var(--gold);margin-top:14px}
 .phead h1{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,5vw,54px);letter-spacing:.03em;line-height:1.1}
 .phead .then{display:flex;align-items:center;gap:12px;margin-top:14px;color:var(--muted);font:14px var(--font-body);background:none;border:0;padding:0;cursor:zoom-in}
 .phead .then .kid{width:64px;border-radius:8px}
@@ -100,7 +108,7 @@
 
 <main>
   <div id="index-view">
-    <div class="intro wrap">
+    <div class="band band-teal"><div class="intro wrap">
       <div class="eyebrow">53rd Batch · Government Medical College, Kozhikode · 2015</div>
       <h1 class="display">VISAG<span>E</span></h1>
       <p>Our final-year slam book.</p>
@@ -108,7 +116,7 @@
         <input class="search" id="q" type="search" placeholder="Search a name or a word, e.g. Swamiyettan" aria-label="Search the slam book">
         <nav class="letters" id="letters" aria-label="Jump to letter"></nav>
       </div>
-    </div>
+    </div></div>
     <div class="wrap"><div class="grid" id="grid"></div></div>
   </div>
 

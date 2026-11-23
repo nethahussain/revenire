@@ -15,7 +15,7 @@
   /* Cartoons: cartoons/manifest.js lists the files that exist, keyed by slam book slug. */
   R.cartoon = slug => (window.CARTOONS && window.CARTOONS[slug]) ? 'cartoons/' + window.CARTOONS[slug] : null;
 
-  const HUES = ['#F2C6CC','#C9E4DC','#F3DDB3','#CFD8F0','#E2CFEA','#D5E8C4','#F4CFB8','#C8E1EA'];
+  const HUES = ['#FFC845','#7FD1C7','#FF9DB0','#F7B267','#B9A3F0','#9ED36A','#FF8A65','#7CC4F2'];
   R.initials = name => String(name).replace(/[^A-Za-z ]/g,' ').trim().split(/\s+/).filter(w => w.length > 1 || /[A-Z]/.test(w)).slice(0,2).map(w => w[0].toUpperCase()).join('');
   /* Cartoon if one has been added; otherwise the face from the slam book portrait (pass the person as p); otherwise initials. */
   R.avatar = (name, slug, size, p) => {
@@ -48,7 +48,7 @@
     const mv = t => { const x = (t % period) / period;
       return g(x,.12,.022,.15) - g(x,.215,.007,.12) + g(x,.235,.009,1.45) - g(x,.255,.008,.32) + g(x,.48,.045,.3); };
     let W=0,H=0,pxmm=4,buf=[],head=0,last=null,tAbs=0;
-    const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+    const css = n => getComputedStyle(cv).getPropertyValue(n).trim();
     function size(){ const dpr = devicePixelRatio || 1; W = cv.clientWidth; H = cv.clientHeight;
       cv.width = W*dpr; cv.height = H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); pxmm = W < 500 ? 3 : 3.5;
       buf = Array.from({length: Math.ceil(W)}, (_, x) => mv(x / (25 * pxmm))); head = 0; }
